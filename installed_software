@@ -11,3 +11,5 @@ xclip
 keepass2
 pylint
 virtualenv
+redshift 
+redshift-gtk

@@ -1,0 +1,6 @@
+#!/bin/bash
+git clone https://github.com/peterbogdan/dotfiles.git && cd ./dotfiles
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install $(cat installed_software)
+mkdir -p ~/.config/nvim && cp ./init.vim "$_"
+cp redshift.conf ~/.config
