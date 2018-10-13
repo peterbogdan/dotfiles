@@ -2,5 +2,6 @@
 git clone https://github.com/peterbogdan/dotfiles.git && cd ./dotfiles
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install $(cat installed_software)
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir -p ~/.config/nvim && cp ./init.vim "$_"
 cp redshift.conf ~/.config
