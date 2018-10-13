@@ -9,6 +9,5 @@ python3
 python-pip
 xclip
 keepass2
-xdtool
 pylint
 virtualenv
