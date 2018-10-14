@@ -5,6 +5,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdcomenter'
 Plug 'trevordmiller/nova-vim'
+Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 " basics:
@@ -29,6 +30,7 @@ let mapleader="\<Space>"
 nnoremap <space> <Nop>
 noremap Y y$
 noremap <leader>p "+gp
+noremap <leader>y "+gy
 "stay in visual mode after identation:
 vnoremap > >gv
 vnoremap < <gv
