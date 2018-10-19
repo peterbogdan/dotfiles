@@ -1,11 +1,15 @@
 call plug#begin('~/.vim/plugged')
+" File tree
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
+"easy comment lines
 Plug 'scrooloose/nerdcommenter'
 Plug 'altercation/vim-colors-solarized'
-Plug 'scrooloose/nerdcomenter'
 Plug 'trevordmiller/nova-vim'
 Plug 'vim-syntastic/syntastic'
+"Autocomplete for c++:
+Plug 'Shougo/deoplete.nvim'
+"Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 " basics:
@@ -31,6 +35,8 @@ nnoremap <space> <Nop>
 noremap Y y$
 noremap <leader>p "+gp
 noremap <leader>y "+gy
+imap jj <Esc>l
+tnoremap <Esc> <c-\><c-n>
 "stay in visual mode after identation:
 vnoremap > >gv
 vnoremap < <gv
@@ -39,6 +45,11 @@ nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
+"resize split screen's easily:
+nnoremap <silent> <c-Up> :exe "resize +5"<CR>
+nnoremap <silent> <c-Right> :exe "vertical resize +5"<CR>
+nnoremap <silent> <c-Down> :exe "resize -5"<CR>
+nnoremap <silent> <c-Left> :exe "vertical resize -5"<CR>
 
 "plugin settings
 
