@@ -4,9 +4,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
 "easy comment lines
 Plug 'scrooloose/nerdcommenter'
-Plug 'altercation/vim-colors-solarized'
+Plug 'koirand/tokyo-metro.vim'
 Plug 'trevordmiller/nova-vim'
 Plug 'vim-syntastic/syntastic'
+Plug 'tpope/vim-fugitive'
 "Autocomplete for c++:
 Plug 'Shougo/deoplete.nvim'
 "Plug 'davidhalter/jedi-vim'
@@ -53,12 +54,18 @@ nnoremap <silent> <c-Left> :exe "vertical resize -5"<CR>
 
 "plugin settings
 
+"vim- airline
+let g:airline_powerline_fonts = 1
+set guifont=Meslo\ LG\ S\ Regular\ for\ PowerLine:h20
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled=1
+
 "theme:
 syntax enable
 set background=dark
 set termguicolors
 "colorscheme solarized
-colorscheme nova
+colorscheme tokyo-metro
 
 "NERDTree:
 map <C-n> :NERDTreeToggle<CR>
