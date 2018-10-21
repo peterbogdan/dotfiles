@@ -14,11 +14,13 @@ Plug 'Shougo/deoplete.nvim'
 call plug#end()
 
 " basics:
+command! W :w
 filetype plugin indent on
 syntax on
 set number
 set relativenumber
 set incsearch
+set hlsearch
 set ignorecase
 set smartcase
 set nohlsearch
@@ -42,10 +44,19 @@ tnoremap <Esc> <c-\><c-n>
 vnoremap > >gv
 vnoremap < <gv
 "navigate split screen easily:
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
+inoremap <A-h> <C-\><C-N><C-w>h
+inoremap <A-j> <C-\><C-N><C-w>j
+inoremap <A-k> <C-\><C-N><C-w>k
+inoremap <A-l> <C-\><C-N><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
 "resize split screen's easily:
 nnoremap <silent> <c-Up> :exe "resize +5"<CR>
 nnoremap <silent> <c-Right> :exe "vertical resize +5"<CR>
@@ -81,9 +92,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-noremap <leader>s :SyntasticReset<CR>
+noremap <leader>s :lclose<CR>
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
