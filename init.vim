@@ -2,9 +2,12 @@ call plug#begin('~/.vim/plugged')
 " File tree
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
+Plug 'ervandew/supertab'
+Plug 'kien/ctrlp.vim'
 "easy comment lines
 Plug 'scrooloose/nerdcommenter'
 Plug 'koirand/tokyo-metro.vim'
+Plug 'junegunn/seoul256.vim'
 Plug 'trevordmiller/nova-vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
