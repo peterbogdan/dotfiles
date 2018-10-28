@@ -13,6 +13,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
 "Autocomplete for c++:
 Plug 'Shougo/deoplete.nvim'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'davidhalter/jedi-vim'
 call plug#end()
 
@@ -89,6 +90,7 @@ let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+let g:NERDTreeShowIgnoredStatus = 1
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 
 "Syntastic:
