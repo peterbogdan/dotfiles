@@ -1,4 +1,3 @@
-neovim
 gcl
 swi-prolog
 gcc
@@ -14,3 +13,11 @@ virtualenv
 redshift 
 redshift-gtk
 byzanz
+python-dev
+python3-dev
+openssl 
+libssl-dev 
+libldap2-dev 
+libsasl2-dev
+pip
+virtualenv
