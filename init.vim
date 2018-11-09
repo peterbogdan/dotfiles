@@ -11,10 +11,12 @@ Plug 'junegunn/seoul256.vim'
 Plug 'trevordmiller/nova-vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
+Plug 'altercation/solarized'
 "Autocomplete for c++:
 Plug 'Shougo/deoplete.nvim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'davidhalter/jedi-vim'
+Plug 'numirias/semshi'
 call plug#end()
 
 " basics:
@@ -78,7 +80,7 @@ let g:airline#extensions#branch#enabled=1
 "theme:
 syntax enable
 set background=dark
-set termguicolors
+"set termguicolors
 "colorscheme solarized
 colorscheme tokyo-metro
 
@@ -103,3 +105,61 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"Semshi:
+let g:semshi#active = 1
+function MyCustomHighlights()
+    hi semshiLocal           ctermfg=209 guifg=#ff875f
+    hi semshiGlobal          ctermfg=214 guifg=#ffaf00
+    hi semshiImported        ctermfg=214 guifg=#ffaf00 cterm=bold gui=bold
+    hi semshiParameter       ctermfg=75  guifg=#5fafff
+    hi semshiParameterUnused ctermfg=117 guifg=#87d7ff cterm=underline gui=underline
+    hi semshiFree            ctermfg=218 guifg=#ffafd7
+    hi semshiBuiltin         ctermfg=207 guifg=#ff5fff
+    hi semshiAttribute       ctermfg=49  guifg=#00ffaf
+    hi semshiSelf            ctermfg=249 guifg=#b2b2b2
+    hi semshiUnresolved      ctermfg=226 guifg=#ffff00 cterm=underline gui=underline
+    hi semshiSelected        ctermfg=231 guifg=#ffffff ctermbg=161 guibg=#d7005f
+
+    hi semshiErrorSign       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
+    hi semshiErrorChar       ctermfg=231 guifg=#ffffff ctermbg=160 guibg=#d70000
+    sign define semshiError text=E> texthl=semshiErrorSign
+endfunction
+autocmd FileType python call MyCustomHighlights()
+autocmd ColorScheme * call MyCustomHighlights()
+
+"Putty color settings for 16-color display:
+if &term =~ "xterm"
+  " 256 colors
+  let &t_Co = 256
+  " restore screen after quitting
+  let &t_ti = "\<Esc>7\<Esc>[r\<Esc>[?47h"
+  let &t_te = "\<Esc>[?47l\<Esc>8"
+  if has("terminfo")
+    let &t_Sf = "\<Esc>[3%p1%dm"
+    let &t_Sb = "\<Esc>[4%p1%dm"
+  else
+    let &t_Sf = "\<Esc>[3%dm"
+    let &t_Sb = "\<Esc>[4%dm"
+  endif
+endif
+
+nnoremap <C-W>O :call MaximizeToggle()<CR>
+nnoremap <C-W>o :call MaximizeToggle()<CR>
+nnoremap <C-W><C-O> :call MaximizeToggle()<CR>
+
+function! MaximizeToggle()
+    if exists("s:maximize_session")
+        exec "source " . s:maximize_session
+        call delete(s:maximize_session)
+        unlet s:maximize_session
+        let &hidden=s:maximize_hidden_save
+        unlet s:maximize_hidden_save
+    else
+        let s:maximize_hidden_save = &hidden
+        let s:maximize_session = tempname()
+        set hidden
+        exec "mksession! " . s:maximize_session
+        only
+    endif
+endfunction
