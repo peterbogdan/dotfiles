@@ -1,22 +1,27 @@
 call plug#begin('~/.vim/plugged')
 " File tree
 Plug 'scrooloose/nerdtree'
+"vim status line
 Plug 'bling/vim-airline'
+"Autocomplete from current File
 Plug 'ervandew/supertab'
-Plug 'kien/ctrlp.vim'
+"File/buffer finder for vim
+"Plug 'ctrlpvim/ctrlp.vim'
 "easy comment lines
 Plug 'scrooloose/nerdcommenter'
+"Tokyo-metro colorscheme
 Plug 'koirand/tokyo-metro.vim'
-Plug 'junegunn/seoul256.vim'
-Plug 'trevordmiller/nova-vim'
+"Syntax linter
 Plug 'vim-syntastic/syntastic'
+"Git wrapper
 Plug 'tpope/vim-fugitive'
-Plug 'altercation/solarized'
 "Autocomplete for c++:
-Plug 'Shougo/deoplete.nvim'
+"Plug 'Shougo/deoplete.nvim'
+"Nerdtree git plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'davidhalter/jedi-vim'
+"Python syntax highlighting
 Plug 'numirias/semshi'
+
 call plug#end()
 
 " basics:
