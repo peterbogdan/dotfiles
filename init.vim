@@ -107,9 +107,18 @@ set statusline+=%*
 noremap <leader>s :lclose<CR>
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_wq = 0
+let g:syntastic_cursor_column = 0
+let g:syntastic_error_symbol = "\u2717"
+let g:syntastic_warning_symbol = "\u26A0"
+let g:syntastic_enable_balloons = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 4
+let b:syntastic_mode = "active"
+"let g:syntastic_quiet_messages = {
+"}
+
 
 "Semshi:
 let g:semshi#active = 1
