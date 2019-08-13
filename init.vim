@@ -119,7 +119,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 4
 let b:syntastic_mode = "active"
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225'
+let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225,W605,W503'
 
 "Semshi:
 let g:semshi#active = 1
