@@ -21,6 +21,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "Python syntax highlighting
 Plug 'numirias/semshi'
+"Python folding function blocks
+Plug 'tmhedberg/SimpylFold'
 
 call plug#end()
 
@@ -116,9 +118,8 @@ let g:syntastic_enable_balloons = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 4
 let b:syntastic_mode = "active"
-"let g:syntastic_quiet_messages = {
-"}
-
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225'
 
 "Semshi:
 let g:semshi#active = 1
@@ -161,3 +162,12 @@ function! MaximizeToggle()
         only
     endif
 endfunction
+
+
+"SimplyFold
+
+let g:SimpylFold_docstring_preview = 0
+let g:SimpylFold_docstring = 0
+let g:SimpylFold_fold_import = 0
+let g:SimpylFold_fold_docstring = 0
+
